@@ -1,0 +1,62 @@
+# csgodicegame-bot
+
+var startValue = 0.1
+var currentValue = startValue
+var count = 0
+    $balance = $("#goCoins")
+	$Play = $("#roll")
+    $betAmountInput = $("#bet")
+	setBetAmount();
+	$anus = $("#oddsOverUnder")
+var beforeBet = 0
+var afterBet = 0
+
+function winRoll(){
+	$anus.click()
+}
+
+setInterval(winRoll,5000);
+
+function bet() {
+    setBetAmount();
+    setTimeout(placeBet, 50);
+}
+
+function setBetAmount() {
+	afterBet=checkafterBet();
+	if(afterBet<beforeBet)
+	{
+		currentValue = currentValue + 0.1
+	}
+	else if(afterBet>beforeBet){
+		currentValue = currentValue - 0.1
+	}
+	else{
+		currentValue=startValue
+	}
+	beforeBet=checkbeforeBet();
+	$betAmountInput.val(currentValue.toFixed(2));
+	placeBet()
+}
+	
+
+function placeBet() {
+       $Play.click()
+	   setTimeout(placeBet2, 800);
+}
+function placeBet2() {
+       $Play.click()
+	setTimeout(check, 800);
+}
+function check() {
+	count++
+	setTimeout(setBetAmount, 2000);
+}
+
+function checkafterBet(){
+	return $balance.text()
+}
+
+function checkbeforeBet() {
+    return $balance.text()
+}
