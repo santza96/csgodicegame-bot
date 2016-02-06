@@ -1,0 +1,2 @@
+# csgodicegame-bot
+THIS IS NOT MARTINGALE THIS IS DALEMBERT
